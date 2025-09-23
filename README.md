@@ -5,7 +5,6 @@ YOLOv8에 **LoRA 어댑터**를 적용하여 **적은 데이터로도 빠르게 
 추가적으로 **DINOv2 기반 특징 추출 + MLP 리스코어링**을 통해 **작은 과일 및 겹치는 과일 탐지 성능**을 향상시켰습니다.  
 최종적으로는 **Jetson Orin Nano + 웹캠 환경**에서 실시간 적용을 목표로 합니다.  
 
----
 
 ## 주요 특징
 - **YOLOv8 + LoRA**  
@@ -17,19 +16,18 @@ YOLOv8에 **LoRA 어댑터**를 적용하여 **적은 데이터로도 빠르게 
 - **경량 배포 준비**  
   - ONNX / TensorRT 변환을 통해 Jetson Orin Nano 등 엣지 디바이스에서 실시간 동작 가능  
 
----
 
 ## 프로젝트 구조
 project/
-├── tools/ # 학습 및 추론 스크립트
-│ ├── train_lora.py # YOLOv8 + LoRA 학습
-│ ├── infer_lora.py # YOLOv8 + LoRA 추론 (Soft-NMS/타일 옵션 포함)
-│ ├── yolov8_lora_module.py# LoRA 모듈 정의
-│ ├── rescore_train.py # DINO + MLP 리스코어링 학습
-│ ├── rescore_infer.py # DINO + MLP 리스코어링 추론
-│ └── dino_lora_module.py # DINO + LoRA 모듈 정의
-├── runs/ # 학습 결과 (weights, 로그, 결과 이미지)
-└── fruit_detection_raw/ # 데이터셋 (깃허브에는 미포함)
+├── tools/ # 학습 및 추론 스크립트 <br/>
+│ ├── train_lora.py # YOLOv8 + LoRA 학습 <br/>
+│ ├── infer_lora.py # YOLOv8 + LoRA 추론 (Soft-NMS/타일 옵션 포함) <br/>
+│ ├── yolov8_lora_module.py# LoRA 모듈 정의 <br/>
+│ ├── rescore_train.py # DINO + MLP 리스코어링 학습 <br/>
+│ ├── rescore_infer.py # DINO + MLP 리스코어링 추론 <br/>
+│ └── dino_lora_module.py # DINO + LoRA 모듈 정의 <br/>
+├── runs/ # 학습 결과 (weights, 로그, 결과 이미지) <br/>
+└── fruit_detection_raw/ # 데이터셋 (깃허브에는 미포함) <br/>
 
 
 ## 데이터셋
@@ -38,18 +36,18 @@ project/
 다운로드: [Fruit Detection Dataset (Kaggle)](https://www.kaggle.com/datasets/lakshaytyagi01/fruit-detection)
 
 데이터셋 구조 예시:
-fruit_detection_raw/
-└── Fruits-detection/
-├── train/
-│ ├── images/
-│ └── labels/
-└── valid/
-├── images/
-└── labels/
+fruit_detection_raw/ <br/>
+└── Fruits-detection/ <br/>
+├── train/ <br/>
+│ ├── images/ <br/>
+│ └── labels/ <br/>
+└── valid/ <br/>
+├── images/ <br/>
+└── labels/ <br/>
 
----
 
 ## 사용 방법
+
 
 ### 1) 학습 (YOLOv8 + LoRA)
 ```bash
@@ -59,19 +57,3 @@ python tools/train_lora.py \
   --imgsz 1280 --epochs 60 --batch 16 \
   --name y8s_lora_1280_r8
 
-### 2) 추론 (Soft-NMS 적용)
-python tools/infer_lora.py \
-  --weights runs/detect/y8s_lora_1280_r8/weights/best.pt \
-  --source fruit_detection_raw/Fruits-detection/valid/images \
-  --soft_nms
-
-### 3) 리스코어링 (YOLO 후보 → DINO + MLP)
-# 리스코어링 학습
-python tools/rescore_train.py --data fruit_detection_raw/Fruits-detection/data.yaml
-
-# 리스코어링 추론
-python tools/rescore_infer.py \
-  --images_dir fruit_detection_raw/Fruits-detection/valid/images \
-  --yolo_weights runs/detect/train/weights/best.pt \
-  --mlp_ckpt runs/rescoring/rescore_mlp.pt \
-  --data_yaml fruit_detection_raw/Fruits-detection/data.yaml
