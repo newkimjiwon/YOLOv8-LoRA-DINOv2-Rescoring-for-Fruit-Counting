@@ -5,6 +5,13 @@ YOLOv8에 **LoRA 어댑터**를 적용하여 **적은 데이터로도 빠르게 
 추가적으로 **DINOv2 기반 특징 추출 + MLP 리스코어링**을 통해 **작은 과일 및 겹치는 과일 탐지 성능**을 향상시켰습니다.  
 최종적으로는 **Jetson Orin Nano + 웹캠 환경**에서 실시간 적용을 목표로 합니다.  
 
+## 결과
+
+### YOLOv8 + DINOv2 + LoRA
+![val_batch0_labels](https://github.com/user-attachments/assets/34db0a0d-56f6-413a-ab78-3e43cfe4e417)
+
+### YOLOv8 + LoRA
+![val_batch0_pred](https://github.com/user-attachments/assets/4c223ad4-eed4-4e75-8562-c840594e4b41)
 
 ## 주요 특징
 - **YOLOv8 + LoRA**  
@@ -44,16 +51,3 @@ fruit_detection_raw/ <br/>
 └── valid/ <br/>
 ├── images/ <br/>
 └── labels/ <br/>
-
-
-## 사용 방법
-
-
-### 1) 학습 (YOLOv8 + LoRA)
-```bash
-python tools/train_lora.py \
-  --data fruit_detection_raw/Fruits-detection/data.yaml \
-  --model yolov8s.pt \
-  --imgsz 1280 --epochs 60 --batch 16 \
-  --name y8s_lora_1280_r8
-
