@@ -49,5 +49,5 @@ Download: [Fruit Detection Dataset (Kaggle)](https://www.kaggle.com/datasets/lak
 
 ## Specifications
 - **GPU**: RTX 3090 (24GB)  
-- **System**: Ubuntu 22.04.5  
+- **System**: Ubuntu 22.04.5 (WSL)
 - **PyTorch**: 2.1.0  
