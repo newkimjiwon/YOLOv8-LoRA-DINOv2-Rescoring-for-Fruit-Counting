@@ -45,3 +45,9 @@ In real industrial scenarios, fruits are often stacked or clustered, making this
 This project uses the **Fruit Detection dataset from Kaggle**.  
 
 Download: [Fruit Detection Dataset (Kaggle)](https://www.kaggle.com/datasets/lakshaytyagi01/fruit-detection)
+
+
+## Specifications
+- **GPU**: RTX 3090 (24GB)  
+- **System**: Ubuntu 22.04.5  
+- **PyTorch**: 2.1.0  
