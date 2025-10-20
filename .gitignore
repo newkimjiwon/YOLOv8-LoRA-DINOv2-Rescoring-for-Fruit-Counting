@@ -1,0 +1,9 @@
+# dataset 제외
+/1_data
+*.png
+*.jpg
+# 캐시/임시 파일 제외
+__pycache__/
+*.pt
+*.onnx
+*.engine
