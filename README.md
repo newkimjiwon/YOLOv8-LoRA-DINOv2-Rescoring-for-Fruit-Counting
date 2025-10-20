@@ -94,12 +94,17 @@ LoRA는 모델의 거대한 원본 가중치는 변경하지 않고(동결), 각
 ### 6.1. 환경 설정
 
 ### 6.2. 프로젝트 클론
+
 git clone [https://github.com/newkimjiwon/YOLOv8-LoRA-DINOv2-Rescoring-for-Fruit-Counting.git](https://github.com/newkimjiwon/YOLOv8-LoRA-DINOv2-Rescoring-for-Fruit-Counting)
+
 cd Dolo
 
 ### 6.3. Conda 가상환경 생성 및 활성화
+
 environment.yaml 파일이 제공될 경우 아래 명령어로 한번에 설치 가능합니다.
+
 conda env create -f environment.yaml
+
 conda activate dolo
 
 ### 6.4. 데이터셋 준비
