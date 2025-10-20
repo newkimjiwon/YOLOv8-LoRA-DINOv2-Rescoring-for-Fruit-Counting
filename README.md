@@ -96,7 +96,7 @@ LoRA는 모델의 거대한 원본 가중치는 변경하지 않고(동결), 각
 ### 6.2. 프로젝트 클론
 
 ```
-git clone [https://github.com/newkimjiwon/YOLOv8-LoRA-DINOv2-Rescoring-for-Fruit-Counting.git](https://github.com/newkimjiwon/YOLOv8-LoRA-DINOv2-Rescoring-for-Fruit-Counting)
+git clone https://github.com/newkimjiwon/YOLOv8-LoRA-DINOv2-Rescoring-for-Fruit-Counting.git
 
 cd Dolo
 ```
