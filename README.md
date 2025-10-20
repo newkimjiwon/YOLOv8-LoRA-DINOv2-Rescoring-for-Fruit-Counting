@@ -76,7 +76,7 @@ LoRA는 모델의 거대한 원본 가중치는 변경하지 않고(동결), 각
 
 | Baseline 모델 (mAP: 0.356) | 지식 증류 모델 (mAP: 0.352) |
 | :---: | :---: |
-| *[여기에 Baseline 모델의 예측 이미지 삽입]* | *[여기에 지식 증류 모델의 예측 이미지 삽입]* |
+| ![val_batch1_pred](https://github.com/user-attachments/assets/20af15a8-ec7b-44ce-b3b4-7d0bdbad6665) | ![val_batch1_pred](https://github.com/user-attachments/assets/7129996c-7c4e-4c84-9731-3c50732ce993) |
 | 오탐지가 일부 존재하며, 겹친 객체에 대한 신뢰도가 다소 불안정합니다. | **오탐지가 눈에 띄게 줄었으며**, 복잡한 상황에서도 더 일관된 탐지 결과를 보여줍니다. |
 
 
