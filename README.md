@@ -101,14 +101,20 @@ git clone https://github.com/newkimjiwon/YOLOv8-LoRA-DINOv2-Rescoring-for-Fruit-
 cd Dolo
 ```
 
-### 6.3. Conda 가상환경 생성 및 활성화
+### 6.3. Conda 가상환경 생성 및 활성화 및 yolov8 모델 다운
 
 ```
-environment.yaml 파일이 제공될 경우 아래 명령어로 한번에 설치 가능합니다.
-
+# 1. environment.yaml 파일로 'dolo' 가상환경을 생성합니다.
 conda env create -f environment.yaml
 
+# 2. 생성된 가상환경을 활성화합니다.
 conda activate dolo
+
+# 3. 사전 학습 가중치를 저장할 폴더를 생성합니다.
+mkdir -p 3_weights/base
+
+# 4. YOLOv8s 사전 학습 가중치 파일을 다운로드합니다.
+wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8s.pt -O 3_weights/base/yolov8s.pt
 ```
 
 ### 6.4. 데이터셋 준비
